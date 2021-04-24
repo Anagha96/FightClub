@@ -90,6 +90,19 @@ class MockAPIManager: APIManager {
     }
     
     override func initiateRequest<Type>(for endPoint: APIEndPoint, completion: @escaping (Type?, Error?) -> Void) where Type: Codable {
+        
+        switch endPoint {
+        case .movieList:
+            if let path = bundle.path(forResource: "Movie", ofType: "json"), let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: []) {
+                do {
+                    let decoder = JSONDecoder()
+                    let model = try decoder.decode(Type.self, from: data)
+                    completion(model,nil)
+                } catch {
+                    completion(nil, error)
+                }
+            }
+        }
         completion(nil,nil)
     }
 }
