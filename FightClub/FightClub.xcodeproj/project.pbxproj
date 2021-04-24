@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DF4A5512634863400F439FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5502634863400F439FA /* AppDelegate.swift */; };
+		9DF4A5532634863400F439FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5522634863400F439FA /* SceneDelegate.swift */; };
+		9DF4A5552634863400F439FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5542634863400F439FA /* ViewController.swift */; };
+		9DF4A5582634863400F439FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF4A5562634863400F439FA /* Main.storyboard */; };
+		9DF4A55A2634863600F439FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF4A5592634863600F439FA /* Assets.xcassets */; };
+		9DF4A55D2634863600F439FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF4A55B2634863600F439FA /* LaunchScreen.storyboard */; };
+		9DF4A5682634863600F439FA /* FightClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5672634863600F439FA /* FightClubTests.swift */; };
+		9DF4A5732634863600F439FA /* FightClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5722634863600F439FA /* FightClubUITests.swift */; };
+		9DF4A5852634865B00F439FA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5842634865B00F439FA /* APIManager.swift */; };
+		9DF4A58D2634867800F439FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A58C2634867800F439FA /* DataManager.swift */; };
+		9DF4A5932634869800F439FA /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4A5922634869800F439FA /* MovieList.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DF4A5642634863600F439FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DF4A5452634863400F439FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DF4A54C2634863400F439FA;
+			remoteInfo = FightClub;
+		};
+		9DF4A56F2634863600F439FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DF4A5452634863400F439FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DF4A54C2634863400F439FA;
+			remoteInfo = FightClub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9DF4A54D2634863400F439FA /* FightClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FightClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF4A5502634863400F439FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DF4A5522634863400F439FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9DF4A5542634863400F439FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DF4A5572634863400F439FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DF4A5592634863600F439FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DF4A55C2634863600F439FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DF4A55E2634863600F439FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF4A5632634863600F439FA /* FightClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF4A5672634863600F439FA /* FightClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightClubTests.swift; sourceTree = "<group>"; };
+		9DF4A5692634863600F439FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF4A56E2634863600F439FA /* FightClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF4A5722634863600F439FA /* FightClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightClubUITests.swift; sourceTree = "<group>"; };
+		9DF4A5742634863600F439FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF4A5842634865B00F439FA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9DF4A58C2634867800F439FA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9DF4A5922634869800F439FA /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DF4A54A2634863400F439FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A5602634863600F439FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A56B2634863600F439FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DF4A5442634863400F439FA = {
+			isa = PBXGroup;
+			children = (
+				9DF4A54F2634863400F439FA /* FightClub */,
+				9DF4A5662634863600F439FA /* FightClubTests */,
+				9DF4A5712634863600F439FA /* FightClubUITests */,
+				9DF4A54E2634863400F439FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DF4A54E2634863400F439FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A54D2634863400F439FA /* FightClub.app */,
+				9DF4A5632634863600F439FA /* FightClubTests.xctest */,
+				9DF4A56E2634863600F439FA /* FightClubUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DF4A54F2634863400F439FA /* FightClub */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A5912634868700F439FA /* Models */,
+				9DF4A5832634864000F439FA /* Common */,
+				9DF4A5502634863400F439FA /* AppDelegate.swift */,
+				9DF4A5522634863400F439FA /* SceneDelegate.swift */,
+				9DF4A5542634863400F439FA /* ViewController.swift */,
+				9DF4A5562634863400F439FA /* Main.storyboard */,
+				9DF4A5592634863600F439FA /* Assets.xcassets */,
+				9DF4A55B2634863600F439FA /* LaunchScreen.storyboard */,
+				9DF4A55E2634863600F439FA /* Info.plist */,
+			);
+			path = FightClub;
+			sourceTree = "<group>";
+		};
+		9DF4A5662634863600F439FA /* FightClubTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A5672634863600F439FA /* FightClubTests.swift */,
+				9DF4A5692634863600F439FA /* Info.plist */,
+			);
+			path = FightClubTests;
+			sourceTree = "<group>";
+		};
+		9DF4A5712634863600F439FA /* FightClubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A5722634863600F439FA /* FightClubUITests.swift */,
+				9DF4A5742634863600F439FA /* Info.plist */,
+			);
+			path = FightClubUITests;
+			sourceTree = "<group>";
+		};
+		9DF4A5832634864000F439FA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A5842634865B00F439FA /* APIManager.swift */,
+				9DF4A58C2634867800F439FA /* DataManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9DF4A5912634868700F439FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DF4A5922634869800F439FA /* MovieList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DF4A54C2634863400F439FA /* FightClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DF4A5772634863600F439FA /* Build configuration list for PBXNativeTarget "FightClub" */;
+			buildPhases = (
+				9DF4A5492634863400F439FA /* Sources */,
+				9DF4A54A2634863400F439FA /* Frameworks */,
+				9DF4A54B2634863400F439FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FightClub;
+			productName = FightClub;
+			productReference = 9DF4A54D2634863400F439FA /* FightClub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DF4A5622634863600F439FA /* FightClubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DF4A57A2634863600F439FA /* Build configuration list for PBXNativeTarget "FightClubTests" */;
+			buildPhases = (
+				9DF4A55F2634863600F439FA /* Sources */,
+				9DF4A5602634863600F439FA /* Frameworks */,
+				9DF4A5612634863600F439FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DF4A5652634863600F439FA /* PBXTargetDependency */,
+			);
+			name = FightClubTests;
+			productName = FightClubTests;
+			productReference = 9DF4A5632634863600F439FA /* FightClubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9DF4A56D2634863600F439FA /* FightClubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DF4A57D2634863600F439FA /* Build configuration list for PBXNativeTarget "FightClubUITests" */;
+			buildPhases = (
+				9DF4A56A2634863600F439FA /* Sources */,
+				9DF4A56B2634863600F439FA /* Frameworks */,
+				9DF4A56C2634863600F439FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DF4A5702634863600F439FA /* PBXTargetDependency */,
+			);
+			name = FightClubUITests;
+			productName = FightClubUITests;
+			productReference = 9DF4A56E2634863600F439FA /* FightClubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DF4A5452634863400F439FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					9DF4A54C2634863400F439FA = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					9DF4A5622634863600F439FA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9DF4A54C2634863400F439FA;
+					};
+					9DF4A56D2634863600F439FA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9DF4A54C2634863400F439FA;
+					};
+				};
+			};
+			buildConfigurationList = 9DF4A5482634863400F439FA /* Build configuration list for PBXProject "FightClub" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DF4A5442634863400F439FA;
+			productRefGroup = 9DF4A54E2634863400F439FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DF4A54C2634863400F439FA /* FightClub */,
+				9DF4A5622634863600F439FA /* FightClubTests */,
+				9DF4A56D2634863600F439FA /* FightClubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DF4A54B2634863400F439FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF4A55D2634863600F439FA /* LaunchScreen.storyboard in Resources */,
+				9DF4A55A2634863600F439FA /* Assets.xcassets in Resources */,
+				9DF4A5582634863400F439FA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A5612634863600F439FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A56C2634863600F439FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DF4A5492634863400F439FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF4A5932634869800F439FA /* MovieList.swift in Sources */,
+				9DF4A5852634865B00F439FA /* APIManager.swift in Sources */,
+				9DF4A58D2634867800F439FA /* DataManager.swift in Sources */,
+				9DF4A5552634863400F439FA /* ViewController.swift in Sources */,
+				9DF4A5512634863400F439FA /* AppDelegate.swift in Sources */,
+				9DF4A5532634863400F439FA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A55F2634863600F439FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF4A5682634863600F439FA /* FightClubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DF4A56A2634863600F439FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF4A5732634863600F439FA /* FightClubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DF4A5652634863600F439FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DF4A54C2634863400F439FA /* FightClub */;
+			targetProxy = 9DF4A5642634863600F439FA /* PBXContainerItemProxy */;
+		};
+		9DF4A5702634863600F439FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DF4A54C2634863400F439FA /* FightClub */;
+			targetProxy = 9DF4A56F2634863600F439FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DF4A5562634863400F439FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF4A5572634863400F439FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DF4A55B2634863600F439FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF4A55C2634863600F439FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DF4A5752634863600F439FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DF4A5762634863600F439FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DF4A5782634863600F439FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DF4A5792634863600F439FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9DF4A57B2634863600F439FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FightClub.app/FightClub";
+			};
+			name = Debug;
+		};
+		9DF4A57C2634863600F439FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FightClub.app/FightClub";
+			};
+			name = Release;
+		};
+		9DF4A57E2634863600F439FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FightClub;
+			};
+			name = Debug;
+		};
+		9DF4A57F2634863600F439FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CY32MMS98R;
+				INFOPLIST_FILE = FightClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.FightClubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FightClub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DF4A5482634863400F439FA /* Build configuration list for PBXProject "FightClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF4A5752634863600F439FA /* Debug */,
+				9DF4A5762634863600F439FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DF4A5772634863600F439FA /* Build configuration list for PBXNativeTarget "FightClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF4A5782634863600F439FA /* Debug */,
+				9DF4A5792634863600F439FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DF4A57A2634863600F439FA /* Build configuration list for PBXNativeTarget "FightClubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF4A57B2634863600F439FA /* Debug */,
+				9DF4A57C2634863600F439FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DF4A57D2634863600F439FA /* Build configuration list for PBXNativeTarget "FightClubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF4A57E2634863600F439FA /* Debug */,
+				9DF4A57F2634863600F439FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DF4A5452634863400F439FA /* Project object */;
+}
