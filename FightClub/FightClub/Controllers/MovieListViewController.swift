@@ -14,14 +14,28 @@ class MovieListViewController: UIViewController {
     
     private let viewModel = MovieListViewModel()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setup()
+        fetchData()
+    }
+    
+    func setup()  {
         /// Collection View Setup
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        
+        /// Search Controller Setup
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func fetchData() {
         viewModel.fetchMovies { (error) in
             if error == nil {
                 DispatchQueue.main.async {
@@ -54,4 +68,10 @@ extension MovieListViewController: UICollectionViewDataSource {
 
 extension MovieListViewController: UICollectionViewDelegate {
     
+}
+
+extension MovieListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO: Search logic
+    }
 }
