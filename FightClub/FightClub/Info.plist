@@ -62,5 +62,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>DataSourcePaths</key>
+	<dict>
+		<key>movieList</key>
+		<string>/3/movie/now_playing?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US&amp;page=1</string>
+	</dict>
+	<key>DataSourceHost</key>
+	<string>https://api.themoviedb.org</string>
 </dict>
 </plist>
