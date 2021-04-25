@@ -12,9 +12,12 @@ class MovieListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let viewModel = MovieListViewModel()
-    
+    private var viewModel = MovieListViewModel()
     let searchController = UISearchController(searchResultsController: nil)
+
+    var isFiltering: Bool {
+      return searchController.isActive
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,9 @@ class MovieListViewController: UIViewController {
                     self.viewModel.movieList.bind { [weak self](_) in
                         self?.collectionView.reloadData()
                     }
+                    self.viewModel.filteredMovieList.bind { [weak self](_) in
+                        self?.collectionView.reloadData()
+                    }
                 }
             } else {
                 //TODO: Handle Exceptions and errors
@@ -52,14 +58,23 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.movieList.value.count
+        if isFiltering {
+            return viewModel.filteredMovieList.value.count
+        } else {
+            return viewModel.movieList.value.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieList.movieListCellIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.movieViewModel = viewModel.movieList.value[indexPath.row]
+        if isFiltering {
+            cell.movieViewModel = viewModel.filteredMovieList.value[indexPath.row]
+        } else {
+            cell.movieViewModel = viewModel.movieList.value[indexPath.row]
+        }
         cell.contentView.layer.cornerRadius = 8.0
         cell.configure()
         return cell
@@ -72,6 +87,11 @@ extension MovieListViewController: UICollectionViewDelegate {
 
 extension MovieListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Search logic
+        if isFiltering {
+            let searchBar =  searchController.searchBar
+            viewModel.filterMovies(for: searchBar.text)
+        }
+       
+
     }
 }

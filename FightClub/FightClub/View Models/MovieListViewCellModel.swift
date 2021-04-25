@@ -14,6 +14,7 @@ public class MovieListViewCellModel {
     let poster = Dynamic("")
     let releaseDate = Dynamic("")
     
+    /// Creating view model for a movie cell
     static func createMovieListCellViewModel(for movie: Movie) -> MovieListViewCellModel {
         let movieListCellModel = MovieListViewCellModel()
         movieListCellModel.name.value = movie.originalTitle ?? ""

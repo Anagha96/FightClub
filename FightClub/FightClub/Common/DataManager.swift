@@ -14,6 +14,7 @@ struct DataManager {
     static var shared = DataManager()
     
     var movies: [Movie] = []
+    var filteredMovies: [Movie] = []
     
     private init() {}
 }

@@ -30,7 +30,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movieCell" reuseIdentifier="movieCell" id="ceX-g1-3Tz" customClass="MovieListCollectionViewCell" customModule="FightClub" customModuleProvider="target">
                                         <rect key="frame" x="11" y="11" width="188" height="384"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Kd6-8b-YVy">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="18N-T5-7Ol">
                                             <rect key="frame" x="0.0" y="0.0" width="188" height="384"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -38,7 +38,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="188" height="284"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="284" id="7NC-vo-2qQ"/>
-                                                        <constraint firstAttribute="width" constant="189" id="nWt-Ov-kip"/>
+                                                        <constraint firstAttribute="width" priority="999" constant="189" id="nWt-Ov-kip"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-aG-16R">
@@ -71,14 +71,14 @@
                                             <constraints>
                                                 <constraint firstItem="Bdv-lr-hOJ" firstAttribute="top" secondItem="1eP-aG-16R" secondAttribute="bottom" constant="5" id="0oa-jJ-mav"/>
                                                 <constraint firstAttribute="trailing" secondItem="1eP-aG-16R" secondAttribute="trailing" constant="8" id="7Zu-ZS-tYx"/>
+                                                <constraint firstAttribute="bottom" secondItem="2cy-9J-Ivp" secondAttribute="bottom" priority="999" constant="8" id="Ea8-dd-VJg"/>
                                                 <constraint firstItem="2cy-9J-Ivp" firstAttribute="top" secondItem="Bdv-lr-hOJ" secondAttribute="bottom" constant="7" id="FXh-XV-WAr"/>
-                                                <constraint firstItem="55r-da-tDw" firstAttribute="top" secondItem="Kd6-8b-YVy" secondAttribute="top" id="N1f-cn-5dE"/>
-                                                <constraint firstAttribute="bottom" secondItem="2cy-9J-Ivp" secondAttribute="bottom" constant="8" id="Xi3-DU-GfL"/>
+                                                <constraint firstItem="55r-da-tDw" firstAttribute="top" secondItem="18N-T5-7Ol" secondAttribute="top" id="N1f-cn-5dE"/>
                                                 <constraint firstItem="Bdv-lr-hOJ" firstAttribute="leading" secondItem="1eP-aG-16R" secondAttribute="leading" id="YcQ-B8-cVm"/>
                                                 <constraint firstItem="1eP-aG-16R" firstAttribute="top" secondItem="55r-da-tDw" secondAttribute="bottom" constant="8" symbolic="YES" id="Zf0-k7-c24"/>
-                                                <constraint firstItem="2cy-9J-Ivp" firstAttribute="centerX" secondItem="Kd6-8b-YVy" secondAttribute="centerX" id="cbU-HZ-OVx"/>
-                                                <constraint firstItem="55r-da-tDw" firstAttribute="leading" secondItem="Kd6-8b-YVy" secondAttribute="leading" id="fTU-jc-TOF"/>
-                                                <constraint firstItem="1eP-aG-16R" firstAttribute="leading" secondItem="Kd6-8b-YVy" secondAttribute="leading" constant="8" id="g1Q-NM-RkN"/>
+                                                <constraint firstItem="2cy-9J-Ivp" firstAttribute="centerX" secondItem="18N-T5-7Ol" secondAttribute="centerX" id="cbU-HZ-OVx"/>
+                                                <constraint firstItem="55r-da-tDw" firstAttribute="leading" secondItem="18N-T5-7Ol" secondAttribute="leading" id="fTU-jc-TOF"/>
+                                                <constraint firstItem="1eP-aG-16R" firstAttribute="leading" secondItem="18N-T5-7Ol" secondAttribute="leading" constant="8" id="g1Q-NM-RkN"/>
                                                 <constraint firstAttribute="trailing" secondItem="55r-da-tDw" secondAttribute="trailing" id="vZH-hJ-bqn"/>
                                                 <constraint firstAttribute="trailing" secondItem="Bdv-lr-hOJ" secondAttribute="trailing" constant="8" id="zP4-RS-ulR"/>
                                             </constraints>
