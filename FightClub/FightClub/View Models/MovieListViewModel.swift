@@ -11,7 +11,7 @@ public struct MovieListViewModel {
     private static let defaultMovieList: [MovieListViewCellModel] = []
     var movieList = Dynamic(defaultMovieList)
     var filteredMovieList = Dynamic(defaultMovieList)
-    
+    var selectedMovie: Int?
     var apiManager = APIManager.shared
     
     /// Creating MovieListViewCellModel for each movie
