@@ -66,6 +66,14 @@
 	<dict>
 		<key>movieList</key>
 		<string>/3/movie/now_playing?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US&amp;page=1</string>
+		<key>synopsis</key>
+		<string>/3/movie/{id}?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US</string>
+		<key>credits</key>
+		<string>/3/movie/{id}/credits?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US&amp;page=1</string>
+		<key>similarMovies</key>
+		<string>/3/movie/{id}/similar?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US&amp;page=1</string>
+		<key>reviews</key>
+		<string>/3/movie/{id}/reviews?api_key=fdaa97ad8ba0923d864233269ba26ea3&amp;language=en-US&amp;page=1</string>
 	</dict>
 	<key>DataSourceHost</key>
 	<string>https://api.themoviedb.org</string>

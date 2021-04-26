@@ -8,8 +8,12 @@
 import Foundation
 
 // MARK: - API endpoints enum for different APIs used in App
-enum APIEndPoint: String {
+enum APIEndPoint {
     case  movieList
+    case synopsis(id: Int)
+    case credits(id: Int)
+    case similarMovies(id: Int)
+    case reviews(id: Int)
     
     /// Fetching path for base URL from info.plist
     var baseURL: String {
@@ -23,13 +27,35 @@ enum APIEndPoint: String {
     
     var method: String {
         switch self {
-        case .movieList:
+        case .movieList, .synopsis, .credits, .similarMovies, .reviews:
             return "GET"
         }
     }
     
+    var rawValue: String {
+        switch self {
+        case .movieList:
+            return  "movieList"
+        case .synopsis:
+            return "synopsis"
+        case .credits:
+            return "credits"
+        case .similarMovies:
+            return "similarMovies"
+        case .reviews:
+            return "reviews"
+        }
+    }
+    
     var pathForResource: String {
-        return baseURL + pathforResource(with: self.rawValue)
+        switch self {
+        case .synopsis(let id), .credits(let id), .similarMovies(let id), .reviews(let id):
+            let url = baseURL + pathforResource(with: self.rawValue)
+            return url.replacingOccurrences(of: "{id}", with: String(id))
+        default:
+            return baseURL + pathforResource(with: self.rawValue)
+        }
+        
     }
     
     /// Fetching path for API endpoint from info.plist
@@ -102,6 +128,18 @@ class MockAPIManager: APIManager {
                     completion(nil, error)
                 }
             }
+        case .synopsis(id: let id):
+            //TODO:
+            completion(nil, nil)
+        case .credits(id: let id):
+            //TODO:
+            completion(nil, nil)
+        case .similarMovies(id: let id):
+            //TODO:
+            completion(nil, nil)
+        case .reviews(id: let id):
+            //TODO:
+            completion(nil, nil)
         }
         completion(nil,nil)
     }
