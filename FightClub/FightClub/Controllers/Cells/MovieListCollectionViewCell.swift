@@ -15,20 +15,17 @@ class MovieListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var bookButton: UIButton!
     
-    var movieViewModel: MovieListViewCellModel?
+    var viewModel: MovieListViewCellModel?
     
     func configure() {
-        movieViewModel?.name.bind { [weak self] (name) in
+        viewModel?.name.bind { [weak self] (name) in
             self?.name.text = name
         }
-        movieViewModel?.releaseDate.bind(listener: { [weak self] (date) in
+        viewModel?.releaseDate.bind(listener: { [weak self] (date) in
             self?.releaseDate.text = date
         })
-        movieViewModel?.poster.bind(listener: { [weak self] (path) in
-            guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + path) else {
-                return
-            }
-            self?.poster.load(url: url)
+        viewModel?.poster.bind(listener: { [weak self] (path) in
+            self?.poster.load(urlString: "https://image.tmdb.org/t/p/w500" + path)
         })
         bookButton.layer.cornerRadius = 12.0
     }

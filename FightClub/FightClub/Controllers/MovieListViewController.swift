@@ -14,6 +14,7 @@ class MovieListViewController: UIViewController {
     
     private var viewModel = MovieListViewModel()
     let searchController = UISearchController(searchResultsController: nil)
+    
 
     var isFiltering: Bool {
       return searchController.isActive
@@ -27,8 +28,10 @@ class MovieListViewController: UIViewController {
     
     func setup()  {
         /// Collection View Setup
+        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: "movieCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
         
         /// Search Controller Setup
         searchController.searchResultsUpdater = self
@@ -54,9 +57,21 @@ class MovieListViewController: UIViewController {
             }
         }
     }
+    
+    /*
+     Function to prepare segue to move to the movie detail screen for the selected movie
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let vc = segue.destination as? MovieDetailsViewController {
+                vc.selectedMovie = viewModel.selectedMovie
+            }
+        }
+    }
 }
 
 extension MovieListViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isFiltering {
             return viewModel.filteredMovieList.value.count
@@ -71,9 +86,9 @@ extension MovieListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         if isFiltering {
-            cell.movieViewModel = viewModel.filteredMovieList.value[indexPath.row]
+            cell.viewModel = viewModel.filteredMovieList.value[indexPath.row]
         } else {
-            cell.movieViewModel = viewModel.movieList.value[indexPath.row]
+            cell.viewModel = viewModel.movieList.value[indexPath.row]
         }
         cell.contentView.layer.cornerRadius = 8.0
         cell.configure()
@@ -82,7 +97,16 @@ extension MovieListViewController: UICollectionViewDataSource {
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isFiltering {
+            viewModel.selectedMovie = viewModel.filteredMovieList.value[indexPath.row].id.value
+            performSegue(withIdentifier: "showDetail", sender: self)
+        } else {
+            viewModel.selectedMovie = viewModel.movieList.value[indexPath.row].id.value
+            performSegue(withIdentifier: "showDetail", sender: self)
+        }
+        
+    }
 }
 
 extension MovieListViewController: UISearchResultsUpdating {
@@ -91,7 +115,5 @@ extension MovieListViewController: UISearchResultsUpdating {
             let searchBar =  searchController.searchBar
             viewModel.filterMovies(for: searchBar.text)
         }
-       
-
     }
 }

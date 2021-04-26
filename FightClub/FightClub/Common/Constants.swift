@@ -12,5 +12,10 @@ struct Constants {
         static let movieListCellIdentifier = "movieCell"
         static let segueId = "showDetail"
     }
+    
+    struct MovieDetails {
+        static let movieDetailsCellId = "movieDetailsCell"
+        static let reviewsCell = "reviewsCell"
+    }
 }
 
