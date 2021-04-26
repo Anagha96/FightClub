@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movieCell" reuseIdentifier="movieCell" id="ZEa-cq-T6o" customClass="MovieListCollectionViewCell" customModule="FightClub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="188" height="384"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7ob-WQ-oMU">
+                <rect key="frame" x="0.0" y="0.0" width="188" height="384"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Il-8o-Aho">
+                        <rect key="frame" x="0.0" y="0.0" width="188" height="284"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="284" id="GkJ-Qg-1Sv"/>
+                            <constraint firstAttribute="width" priority="999" constant="189" id="r7q-2K-2jj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvs-aE-acO">
+                        <rect key="frame" x="8" y="292" width="172" height="21"/>
+                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmb-5K-cCw">
+                        <rect key="frame" x="8" y="318" width="172" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcA-ou-s7d">
+                        <rect key="frame" x="63" y="343" width="62" height="33"/>
+                        <color key="backgroundColor" red="0.54832720339999996" green="0.49086387949999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="UqV-cX-eKe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <state key="normal" title="BOOK">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="bookButtonPressed:" destination="ZEa-cq-T6o" eventType="touchUpInside" id="oNK-53-lMR"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cvs-aE-acO" secondAttribute="trailing" constant="8" id="3HA-85-zfZ"/>
+                    <constraint firstItem="cvs-aE-acO" firstAttribute="top" secondItem="2Il-8o-Aho" secondAttribute="bottom" constant="8" symbolic="YES" id="4sV-Rd-o0t"/>
+                    <constraint firstAttribute="trailing" secondItem="2Il-8o-Aho" secondAttribute="trailing" id="6JK-3V-D2q"/>
+                    <constraint firstAttribute="trailing" secondItem="gmb-5K-cCw" secondAttribute="trailing" constant="8" id="8Ji-A9-Tzk"/>
+                    <constraint firstItem="rcA-ou-s7d" firstAttribute="centerX" secondItem="7ob-WQ-oMU" secondAttribute="centerX" id="A1l-rZ-W8O"/>
+                    <constraint firstItem="2Il-8o-Aho" firstAttribute="leading" secondItem="7ob-WQ-oMU" secondAttribute="leading" id="FX7-LK-RWM"/>
+                    <constraint firstItem="gmb-5K-cCw" firstAttribute="leading" secondItem="cvs-aE-acO" secondAttribute="leading" id="KZv-F7-jPk"/>
+                    <constraint firstItem="2Il-8o-Aho" firstAttribute="top" secondItem="7ob-WQ-oMU" secondAttribute="top" id="UOh-Qw-63K"/>
+                    <constraint firstItem="rcA-ou-s7d" firstAttribute="top" secondItem="gmb-5K-cCw" secondAttribute="bottom" constant="7" id="eSJ-kc-jyg"/>
+                    <constraint firstAttribute="bottom" secondItem="rcA-ou-s7d" secondAttribute="bottom" priority="999" constant="8" id="fIg-AN-MsG"/>
+                    <constraint firstItem="cvs-aE-acO" firstAttribute="leading" secondItem="7ob-WQ-oMU" secondAttribute="leading" constant="8" id="inQ-3n-5pm"/>
+                    <constraint firstItem="gmb-5K-cCw" firstAttribute="top" secondItem="cvs-aE-acO" secondAttribute="bottom" constant="5" id="umn-fo-Lcn"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="188" height="384"/>
+            <connections>
+                <outlet property="bookButton" destination="rcA-ou-s7d" id="hU3-lD-srf"/>
+                <outlet property="name" destination="cvs-aE-acO" id="kN9-JP-Obh"/>
+                <outlet property="poster" destination="2Il-8o-Aho" id="ViI-Eh-KzR"/>
+                <outlet property="releaseDate" destination="gmb-5K-cCw" id="20d-Ej-1A1"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="72"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
