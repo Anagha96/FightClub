@@ -13,3 +13,8 @@
 3. Pull to Refresh
 4. Haptic Feedback
 
+## Demo Video
+
+ [Demo Video](https://drive.google.com/file/d/18YOowWP71BXu3BBE_VC6fj_2dsCcZihn/view?usp=sharing)
+ 
+ 
