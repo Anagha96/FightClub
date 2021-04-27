@@ -52,6 +52,7 @@ class MovieDetailsViewController: UIViewController {
         setupNavigationBar()
         
         ///Activity Indicator Configuration
+        view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.style = .large
         activityIndicator.startAnimating()

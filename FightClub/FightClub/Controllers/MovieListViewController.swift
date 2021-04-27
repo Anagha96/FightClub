@@ -36,8 +36,10 @@ class MovieListViewController: UIViewController {
         collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle.main), forCellWithReuseIdentifier: "movieCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.collectionViewLayout = generateLayout()
         
         ///Activity Indicator Configuration
+        view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.style = .large
         activityIndicator.startAnimating()
@@ -80,6 +82,35 @@ class MovieListViewController: UIViewController {
                 vc.selectedMovie = viewModel.selectedMovie
             }
         }
+    }
+    
+    func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+                                                            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.47),
+                                                  heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(380))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            group.interItemSpacing = .fixed(20)
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 20
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+            
+            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .estimated(44))
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top)
+            section.boundarySupplementaryItems = [titleSupplementary]
+            return section
+            
+        }
+        
+        return layout
     }
 }
 
