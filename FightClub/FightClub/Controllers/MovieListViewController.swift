@@ -42,7 +42,6 @@ class MovieListViewController: UIViewController {
         activityIndicator.style = .large
         activityIndicator.startAnimating()
         
-        
         /// Search Controller Setup
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -106,7 +105,7 @@ extension MovieListViewController: UICollectionViewDataSource {
         }
         cell.delegate = self
         cell.contentView.layer.cornerRadius = 8.0
-        cell.configure()
+        cell.configure(isBookingEnabled: true)
         return cell
     }
 }
