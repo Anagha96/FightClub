@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImageView {
     func load(urlString: String, scaleFactor: CGFloat = 1.0) {
-        
+        self.image = UIImage(named: "defaultImage")
         if let posterImage = DataManager.shared.cache.object(forKey: urlString as NSString) {
             DispatchQueue.main.async {
                 self.image = posterImage
