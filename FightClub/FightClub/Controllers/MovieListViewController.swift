@@ -87,17 +87,17 @@ class MovieListViewController: UIViewController {
     func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
                                                             layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.47),
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.49),
                                                   heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(380))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            group.interItemSpacing = .fixed(20)
+            group.interItemSpacing = .fixed(5)
             let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = 20
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+            section.interGroupSpacing = 5
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
             
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))
@@ -136,7 +136,7 @@ extension MovieListViewController: UICollectionViewDataSource {
         }
         cell.delegate = self
         cell.contentView.layer.cornerRadius = 8.0
-        cell.configure(isBookingEnabled: true)
+        cell.configure()
         return cell
     }
 }
@@ -165,8 +165,6 @@ extension MovieListViewController: UISearchResultsUpdating {
 
 extension MovieListViewController: MovieListCellDelegate {
     func handleButtonPress() {
-        self.showAlert(title: Constants.MovieList.bookButtonPressedAlertTitle, message: Constants.MovieList.bookButtonPressedAlertTitle, primaryActionTitle: Constants.MovieList.bookButtonPressedAlertActionTitle, primaryActionhandler: nil)
+        self.showAlert(title: Constants.MovieList.bookButtonPressedAlertTitle, message: Constants.MovieList.bookButtonPressedAlertMsg, primaryActionTitle: Constants.MovieList.bookButtonPressedAlertActionTitle, primaryActionhandler: nil)
     }
-    
-    
 }

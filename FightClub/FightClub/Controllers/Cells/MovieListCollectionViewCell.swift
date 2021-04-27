@@ -18,7 +18,7 @@ class MovieListCollectionViewCell: UICollectionViewCell {
     var viewModel: MovieListCellViewModel?
     weak var delegate: MovieListCellDelegate?
     
-    func configure(isBookingEnabled: Bool = false) {
+    func configure(isBookingEnabled: Bool = true) {
         bookButton.isHidden = !isBookingEnabled
         viewModel?.name.bind { [weak self] (name) in
             self?.name.text = name

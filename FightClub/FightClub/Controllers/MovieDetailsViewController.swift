@@ -138,6 +138,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieList.movieListCellIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             cell.viewModel = viewModel.movieList.value[indexPath.row]
             cell.contentView.layer.cornerRadius = 8.0
             cell.configure()
@@ -204,11 +205,11 @@ extension MovieDetailsViewController {
     
     func generateMovieDetailsLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated(450))
+                                              heightDimension: .absolute(450))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(450))
+            heightDimension: .absolute(450))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
@@ -284,5 +285,11 @@ extension MovieDetailsViewController {
             alignment: .top)
         section.boundarySupplementaryItems = [titleSupplementary]
         return section
+    }
+}
+
+extension MovieDetailsViewController: MovieListCellDelegate {
+    func handleButtonPress() {
+        self.showAlert(title: Constants.MovieList.bookButtonPressedAlertTitle, message: Constants.MovieList.bookButtonPressedAlertMsg, primaryActionTitle: Constants.MovieList.bookButtonPressedAlertActionTitle, primaryActionhandler: nil)
     }
 }
