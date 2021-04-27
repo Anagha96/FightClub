@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public struct MovieListViewCellModel {
+public struct MovieListCellViewModel {
     
     let name = Dynamic("")
     let poster = Dynamic("")
@@ -16,8 +16,8 @@ public struct MovieListViewCellModel {
     let id = Dynamic(0)
     
     /// Creating view model for a movie cell
-    static func createMovieListCellViewModel(for movie: Movie) -> MovieListViewCellModel {
-        let movieListCellModel = MovieListViewCellModel()
+    static func createMovieListCellViewModel(for movie: Movie) -> MovieListCellViewModel {
+        let movieListCellModel = MovieListCellViewModel()
         movieListCellModel.name.value = movie.originalTitle ?? ""
         movieListCellModel.poster.value = movie.posterPath ?? ""
         movieListCellModel.id.value = movie.id ?? 0

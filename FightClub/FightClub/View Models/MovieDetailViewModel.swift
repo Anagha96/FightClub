@@ -10,7 +10,7 @@ import Foundation
 public struct MovieDetailViewModel {
     
     private static let defaultCrewList: [CrewDetailsCellViewModel] = []
-    private static let defaultMovieList: [MovieListViewCellModel] = []
+    private static let defaultMovieList: [MovieListCellViewModel] = []
     private static let defaultDetails: [MovieDetailsCellViewModel] = []
     private static let defaultReviews: [MovieReviewCellViewModel] = []
     
@@ -18,7 +18,6 @@ public struct MovieDetailViewModel {
     var movieDetails = Dynamic(defaultDetails)
     var movieList = Dynamic(defaultMovieList)
     var crewList = Dynamic(defaultCrewList)
-    
     
     var apiManager = APIManager.shared
     
@@ -31,7 +30,7 @@ public struct MovieDetailViewModel {
     /// Creating MovieListViewCellModel for each movie
     func createMovieListViewCellModels(for movies: [Movie]) {
         self.movieList.value = movies.map {
-            return MovieListViewCellModel.createMovieListCellViewModel(for: $0)
+            return MovieListCellViewModel.createMovieListCellViewModel(for: $0)
         }
     }
     

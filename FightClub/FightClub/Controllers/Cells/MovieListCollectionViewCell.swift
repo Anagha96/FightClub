@@ -15,7 +15,7 @@ class MovieListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var bookButton: UIButton!
     
-    var viewModel: MovieListViewCellModel?
+    var viewModel: MovieListCellViewModel?
     weak var delegate: MovieListCellDelegate?
     
     func configure(isBookingEnabled: Bool = false) {

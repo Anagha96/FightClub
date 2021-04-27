@@ -22,9 +22,8 @@ class MovieListViewModelTests: XCTestCase {
     }
 }
 
-class MovieListViewCellModelTests: XCTestCase {
+class MovieListCellViewModelTests: XCTestCase {
 
-    
     func testCreateMovieListCellViewModel() {
         let bundle = Bundle(for: MovieListViewModelTests.self)
         if let path = bundle.path(forResource: "Movie", ofType: "json"), let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: []) {
@@ -32,7 +31,7 @@ class MovieListViewCellModelTests: XCTestCase {
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(MovieList.self, from: data)
                 if let movie = model.results.first {
-                    let viewModel = MovieListViewCellModel.createMovieListCellViewModel(for: movie)
+                    let viewModel = MovieListCellViewModel.createMovieListCellViewModel(for: movie)
                     XCTAssertEqual(viewModel.name.value, "Godzilla vs. Kong")
                     XCTAssertEqual(viewModel.releaseDate.value, "Mar 24, 2021")
                 }

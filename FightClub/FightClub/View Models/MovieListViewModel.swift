@@ -8,7 +8,7 @@
 import Foundation
 
 public struct MovieListViewModel {
-    private static let defaultMovieList: [MovieListViewCellModel] = []
+    private static let defaultMovieList: [MovieListCellViewModel] = []
     var movieList = Dynamic(defaultMovieList)
     var filteredMovieList = Dynamic(defaultMovieList)
     var selectedMovie: Int?
@@ -19,7 +19,7 @@ public struct MovieListViewModel {
     /// Creating MovieListViewCellModel for each movie
     func createMovieListViewCellModels(for movies: [Movie]) {
         self.movieList.value = movies.map {
-            return MovieListViewCellModel.createMovieListCellViewModel(for: $0)
+            return MovieListCellViewModel.createMovieListCellViewModel(for: $0)
         }
     }
     
