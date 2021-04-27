@@ -204,15 +204,14 @@ extension MovieListViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: Constants.MovieList.segueId, sender: self)
             }
             
-            
-           
-            
         } else {
             viewModel.selectedMovie = viewModel.movieList.value[indexPath.row].id.value
             performSegue(withIdentifier: Constants.MovieList.segueId, sender: self)
         }
-        
+        ///Haptic feedback on selecting a movie
+        UISelectionFeedbackGenerator().selectionChanged()
     }
+    
 }
 
 extension MovieListViewController: UISearchResultsUpdating {

@@ -27,7 +27,6 @@ public struct MovieListViewModel {
     
     ///Save Recently SearchedData
     func saveToRecentlySearched(movieID: Int?) {
-        print("Cached Movies", DataManager.shared.recentlySearchedMovies)
         guard let movieID = movieID else {
             return
         }
