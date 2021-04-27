@@ -112,7 +112,6 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
             return headerView
         }
         return UICollectionReusableView()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
