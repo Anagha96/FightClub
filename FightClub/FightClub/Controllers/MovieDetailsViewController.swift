@@ -33,6 +33,7 @@ class MovieDetailsViewController: UIViewController {
         collectionView.register(UINib(nibName: Constants.MovieDetails.movieDetailsSectionNibName, bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.MovieDetails.movieDetailsSectionIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.addSubview(activityIndicator)
         collectionView.collectionViewLayout = generateLayout()
     }
     
@@ -45,17 +46,7 @@ class MovieDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: homeIcon, style: .plain, target: self, action: #selector(goToHome))
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupCollectionView()
-        setupNavigationBar()
-        
-        ///Activity Indicator Configuration
-        view.addSubview(activityIndicator)
-        activityIndicator.center = view.center
-        activityIndicator.style = .large
-        activityIndicator.startAnimating()
-        
+    fileprivate func fetchDetails() {
         viewModel.fetchMovieDetails(id: selectedMovie) { (error) in
             if error == nil {
                 self.viewModel.crewList.bind { [weak self](_) in
@@ -76,15 +67,28 @@ class MovieDetailsViewController: UIViewController {
                         
                     }
                 }
-
+                
             } else {
                 self.showAlertForError()
             }
             DispatchQueue.main.async {
-            ///Stoping Activity Indicator Animation
-            self.activityIndicator.stopAnimating()
+                ///Stoping Activity Indicator Animation
+                self.activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCollectionView()
+        setupNavigationBar()
+        
+        ///Activity Indicator Configuration
+        activityIndicator.center = view.center
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
+        
+        fetchDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -73,7 +73,6 @@ public struct MovieDetailViewModel {
             }
             group.leave()
         }
-        
         group.enter()
         apiManager.initiateRequest(for: .synopsis(id: id)) { (model: Synopsis?, error) in
             if error == nil {

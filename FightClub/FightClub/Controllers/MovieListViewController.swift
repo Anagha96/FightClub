@@ -19,17 +19,29 @@ class MovieListViewController: UIViewController {
     private var viewModel = MovieListViewModel()
     let searchController = UISearchController(searchResultsController: nil)
     var activityIndicator = UIActivityIndicatorView()
+    var refreshControl = UIRefreshControl()
     
-
     var isFiltering: Bool {
-      return searchController.isActive
+        return searchController.isActive
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         fetchData()
+        collectionView.addSubview(activityIndicator)
+        collectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
     }
+    
+    /*
+     Function to call view model to fetch the movie list on pull to refresh
+     */
+    @objc func refresh(_ sender: AnyObject) {
+        fetchData()
+    }
+    
     
     func setup()  {
         /// Collection View Setup
@@ -39,7 +51,6 @@ class MovieListViewController: UIViewController {
         collectionView.collectionViewLayout = generateLayout()
         
         ///Activity Indicator Configuration
-        view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.style = .large
         activityIndicator.startAnimating()
@@ -55,22 +66,28 @@ class MovieListViewController: UIViewController {
     func fetchData() {
         viewModel.fetchMovies { (error) in
             if error == nil {
-                DispatchQueue.main.async {
-                    self.viewModel.movieList.bind { [weak self](_) in
-                        self?.collectionView.reloadData()
-                    }
-                    self.viewModel.filteredMovieList.bind { [weak self](_) in
+                
+                self.viewModel.movieList.bind { [weak self](_) in
+                    DispatchQueue.main.async {
                         self?.collectionView.reloadData()
                     }
                 }
+                self.viewModel.filteredMovieList.bind { [weak self](_) in
+                    DispatchQueue.main.async {
+                        self?.collectionView.reloadData()
+                    }
+                }
+                
             } else {
                 self.showAlertForError()
             }
             DispatchQueue.main.async {
-            ///Stoping Activity Indicator Animation
-            self.activityIndicator.stopAnimating()
+                ///Stoping Activity Indicator Animation
+                self.activityIndicator.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         }
+       
     }
     
     /*
@@ -115,7 +132,7 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: UICollectionViewDataSource {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isFiltering {
             return viewModel.filteredMovieList.value.count
