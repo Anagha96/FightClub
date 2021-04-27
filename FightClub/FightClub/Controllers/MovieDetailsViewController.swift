@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-    static let sectionHeaderElementKind = "section-header-element-kind"
     var selectedMovie: Int?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,11 +26,11 @@ class MovieDetailsViewController: UIViewController {
     let sections: [Section] = [.MovieDetails, .Cast, .SimilarMovies, .Reviews]
     
     fileprivate func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CrewDetailsCell", bundle: Bundle.main), forCellWithReuseIdentifier: "crewDetailsCell")
-        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle.main), forCellWithReuseIdentifier: "movieCell")
-        collectionView.register(UINib(nibName: "MovieDetailsCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.movieDetailsCellId)
-        collectionView.register(UINib(nibName: "MovieReviewsCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.reviewsCell)
-        collectionView.register(UINib(nibName: "MovieDetailsSectionHeaderView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "movieDetailsSectionHeader")
+        collectionView.register(UINib(nibName: Constants.MovieDetails.movieCrewCellNibName, bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.movieCrewCellIdentifier)
+        collectionView.register(UINib(nibName: Constants.MovieList.movieListCellNibName, bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieList.movieListCellIdentifier)
+        collectionView.register(UINib(nibName: Constants.MovieDetails.movieDetailsCellNibName, bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.movieDetailsCellId)
+        collectionView.register(UINib(nibName: Constants.MovieDetails.movieReviewsCellNibName, bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.movieReviewsCellIdentifier)
+        collectionView.register(UINib(nibName: Constants.MovieDetails.movieDetailsSectionNibName, bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.MovieDetails.movieDetailsSectionIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = generateLayout()
@@ -102,7 +101,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "movieDetailsSectionHeader", for: indexPath) as? MovieDetailsSectionHeaderView else {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.MovieDetails.movieDetailsSectionIdentifier, for: indexPath) as? MovieDetailsSectionHeaderView else {
                 return UICollectionReusableView()
             }
             headerView.sectionHeader.text = sections[indexPath.section].rawValue
@@ -128,7 +127,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
         case .Cast:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "crewDetailsCell", for: indexPath) as? CrewDetailsCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieDetails.movieCrewCellIdentifier, for: indexPath) as? CrewDetailsCollectionViewCell else {
                 return UICollectionViewCell()
             }
             cell.viewModel = viewModel.crewList.value[indexPath.row]
@@ -136,7 +135,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
             cell.configure()
             return cell
         case .SimilarMovies:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as? MovieListCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieList.movieListCellIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             cell.viewModel = viewModel.movieList.value[indexPath.row]
@@ -152,7 +151,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
             cell.configure()
             return cell
         case .Reviews:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieDetails.reviewsCell, for: indexPath) as? ReviewsCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.MovieDetails.movieReviewsCellIdentifier, for: indexPath) as? ReviewsCollectionViewCell else {
                 return UICollectionViewCell()
             }
             cell.viewModel = viewModel.movieReviews.value[indexPath.row]

@@ -33,7 +33,7 @@ class MovieListViewController: UIViewController {
     
     func setup()  {
         /// Collection View Setup
-        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle.main), forCellWithReuseIdentifier: "movieCell")
+        collectionView.register(UINib(nibName: Constants.MovieList.movieListCellNibName, bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieList.movieListCellIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = generateLayout()
@@ -77,7 +77,7 @@ class MovieListViewController: UIViewController {
      Function to prepare segue to move to the movie detail screen for the selected movie
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == Constants.MovieList.segueId {
             if let vc = segue.destination as? MovieDetailsViewController {
                 vc.selectedMovie = viewModel.selectedMovie
             }
@@ -145,10 +145,10 @@ extension MovieListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isFiltering {
             viewModel.selectedMovie = viewModel.filteredMovieList.value[indexPath.row].id.value
-            performSegue(withIdentifier: "showDetail", sender: self)
+            performSegue(withIdentifier: Constants.MovieList.segueId, sender: self)
         } else {
             viewModel.selectedMovie = viewModel.movieList.value[indexPath.row].id.value
-            performSegue(withIdentifier: "showDetail", sender: self)
+            performSegue(withIdentifier: Constants.MovieList.segueId, sender: self)
         }
         
     }
@@ -165,7 +165,7 @@ extension MovieListViewController: UISearchResultsUpdating {
 
 extension MovieListViewController: MovieListCellDelegate {
     func handleButtonPress() {
-        self.showAlert(title: "Book Button Pressed", message: "Please tap on 'OK' to continue", primaryActionTitle: "OK", primaryActionhandler: nil)
+        self.showAlert(title: Constants.MovieList.bookButtonPressedAlertTitle, message: Constants.MovieList.bookButtonPressedAlertTitle, primaryActionTitle: Constants.MovieList.bookButtonPressedAlertActionTitle, primaryActionhandler: nil)
     }
     
     
