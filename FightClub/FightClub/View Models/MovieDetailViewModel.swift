@@ -18,7 +18,7 @@ public struct MovieDetailViewModel {
     var movieDetails = Dynamic(defaultDetails)
     var movieList = Dynamic(defaultMovieList)
     var crewList = Dynamic(defaultCrewList)
-
+    
     
     var apiManager = APIManager.shared
     
@@ -47,19 +47,17 @@ public struct MovieDetailViewModel {
     /// Fetch Details of a movie
     func fetchMovieDetails(id: Int?, completion: @escaping ((Error?) -> Void)) {
         guard let id = id else {
-            //TODO
             return
         }
         let group = DispatchGroup()
-        
+        var err: Error?
         group.enter()
         apiManager.initiateRequest(for: .credits(id: id)) { (model: Credits?, error) in
             if error == nil {
                 if let model = model {
                     createCrewDetailsCellViewModels(for: model.cast ?? [])
-                    completion(nil)
                 } else {
-                    completion(error)
+                    err = error
                 }
             }
             group.leave()
@@ -70,9 +68,8 @@ public struct MovieDetailViewModel {
             if error == nil {
                 if let model = model {
                     createMovieListViewCellModels(for: model.results ?? [])
-                    completion(nil)
                 } else {
-                    completion(error)
+                    err = error
                 }
             }
             group.leave()
@@ -83,9 +80,8 @@ public struct MovieDetailViewModel {
             if error == nil {
                 if let model = model {
                     createMovieDetailsViewCellModel(for: model)
-                    completion(nil)
                 } else {
-                    completion(error)
+                    err = error
                 }
             }
             group.leave()
@@ -96,16 +92,19 @@ public struct MovieDetailViewModel {
             if error == nil {
                 if let model = model {
                     createMovieReviewsViewCellModel(for: model.results ?? [])
-                    completion(nil)
                 } else {
-                    completion(error)
+                    err = error
                 }
             }
             group.leave()
         }
         
         group.notify(queue: .main) {
-            print("Done")
+            if let err = err {
+                completion(err)
+            } else {
+                completion(nil)
+            }
         }
     }
 }

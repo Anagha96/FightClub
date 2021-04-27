@@ -14,6 +14,8 @@ public struct MovieListViewModel {
     var selectedMovie: Int?
     var apiManager = APIManager.shared
     
+    
+    
     /// Creating MovieListViewCellModel for each movie
     func createMovieListViewCellModels(for movies: [Movie]) {
         self.movieList.value = movies.map {

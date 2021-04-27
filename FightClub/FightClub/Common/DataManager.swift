@@ -10,10 +10,8 @@ import UIKit
 
 // MARK: - Managing Data for the entire application
 struct DataManager {
-    
     /// Shared instance
     static var shared = DataManager()
-    
     var movies: [Movie] = []
     var filteredMovies: [Movie] = []
     let cache = NSCache<NSString, UIImage>()

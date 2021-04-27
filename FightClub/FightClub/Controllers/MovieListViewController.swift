@@ -8,12 +8,17 @@
 import Foundation
 import UIKit
 
+protocol MovieListCellDelegate: class {
+    func handleButtonPress()
+}
+
 class MovieListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var viewModel = MovieListViewModel()
     let searchController = UISearchController(searchResultsController: nil)
+    var activityIndicator = UIActivityIndicatorView()
     
 
     var isFiltering: Bool {
@@ -28,9 +33,14 @@ class MovieListViewController: UIViewController {
     
     func setup()  {
         /// Collection View Setup
-        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: "movieCell")
+        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle.main), forCellWithReuseIdentifier: "movieCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        ///Activity Indicator Configuration
+        activityIndicator.center = view.center
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
         
         
         /// Search Controller Setup
@@ -53,7 +63,11 @@ class MovieListViewController: UIViewController {
                     }
                 }
             } else {
-                //TODO: Handle Exceptions and errors
+                self.showAlertForError()
+            }
+            DispatchQueue.main.async {
+            ///Stoping Activity Indicator Animation
+            self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -90,6 +104,7 @@ extension MovieListViewController: UICollectionViewDataSource {
         } else {
             cell.viewModel = viewModel.movieList.value[indexPath.row]
         }
+        cell.delegate = self
         cell.contentView.layer.cornerRadius = 8.0
         cell.configure()
         return cell
@@ -116,4 +131,12 @@ extension MovieListViewController: UISearchResultsUpdating {
             viewModel.filterMovies(for: searchBar.text)
         }
     }
+}
+
+extension MovieListViewController: MovieListCellDelegate {
+    func handleButtonPress() {
+        self.showAlert(title: "Book Button Pressed", message: "Please tap on 'OK' to continue", primaryActionTitle: "OK", primaryActionhandler: nil)
+    }
+    
+    
 }

@@ -16,6 +16,7 @@ class MovieListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bookButton: UIButton!
     
     var viewModel: MovieListViewCellModel?
+    weak var delegate: MovieListCellDelegate?
     
     func configure() {
         viewModel?.name.bind { [weak self] (name) in
@@ -31,7 +32,7 @@ class MovieListCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func bookButtonPressed(_ sender: Any) {
-        //TODO: Implement Alert on Book button press
+        delegate?.handleButtonPress()
     }
 }
 

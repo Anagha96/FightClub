@@ -15,6 +15,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var viewModel = MovieDetailViewModel()
+    var activityIndicator = UIActivityIndicatorView()
     
     enum Section: String, CaseIterable {
         case Cast = "Cast"
@@ -26,11 +27,11 @@ class MovieDetailsViewController: UIViewController {
     let sections: [Section] = [.MovieDetails, .Cast, .SimilarMovies, .Reviews]
     
     fileprivate func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CrewDetailsCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: "crewDetailsCell")
-        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: "movieCell")
-        collectionView.register(UINib(nibName: "MovieDetailsCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: Constants.MovieDetails.movieDetailsCellId)
-        collectionView.register(UINib(nibName: "MovieReviewsCell", bundle: Bundle(for: MovieDetailsViewController.self)), forCellWithReuseIdentifier: Constants.MovieDetails.reviewsCell)
-        collectionView.register(UINib(nibName: "MovieDetailsSectionHeaderView", bundle: Bundle(for:MovieDetailsViewController.self)), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "movieDetailsSectionHeader")
+        collectionView.register(UINib(nibName: "CrewDetailsCell", bundle: Bundle.main), forCellWithReuseIdentifier: "crewDetailsCell")
+        collectionView.register(UINib(nibName: "MovieCell", bundle: Bundle.main), forCellWithReuseIdentifier: "movieCell")
+        collectionView.register(UINib(nibName: "MovieDetailsCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.movieDetailsCellId)
+        collectionView.register(UINib(nibName: "MovieReviewsCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.MovieDetails.reviewsCell)
+        collectionView.register(UINib(nibName: "MovieDetailsSectionHeaderView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "movieDetailsSectionHeader")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = generateLayout()
@@ -49,6 +50,11 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupNavigationBar()
+        
+        ///Activity Indicator Configuration
+        activityIndicator.center = view.center
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
         
         viewModel.fetchMovieDetails(id: selectedMovie) { (error) in
             if error == nil {
@@ -72,7 +78,11 @@ class MovieDetailsViewController: UIViewController {
                 }
 
             } else {
-                //TODO: Handle Exceptions and errors
+                self.showAlertForError()
+            }
+            DispatchQueue.main.async {
+            ///Stoping Activity Indicator Animation
+            self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -170,34 +180,38 @@ extension MovieDetailsViewController: UICollectionViewDelegate {
 
 extension MovieDetailsViewController {
     func generateLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+        let layout = UICollectionViewCompositionalLayout { [weak self](sectionIndex: Int,
                                                             layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            let sectionLayoutKind = self.sections[sectionIndex]
-            switch (sectionLayoutKind) {
-            case .Cast: return self.generateCastLayout()
-            case .SimilarMovies:
-                return self.generateMoviesLayout()
-            case .MovieDetails:
-                return self.generateMovieDetailsLayout()
-            case .Reviews:
-                return self.generateReviewsLayout()
+            if let strongSelf = self {
+                let sectionLayoutKind = strongSelf.sections[sectionIndex]
+                switch (sectionLayoutKind) {
+                case .Cast: return strongSelf.generateCastLayout()
+                case .SimilarMovies:
+                    return strongSelf.generateMoviesLayout()
+                case .MovieDetails:
+                    return strongSelf.generateMovieDetailsLayout()
+                case .Reviews:
+                    return strongSelf.generateReviewsLayout()
+                }
+            } else {
+                return nil
             }
+            
         }
+        
         return layout
     }
     
     func generateMovieDetailsLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated(100))
+                                              heightDimension: .estimated(450))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(100))
+            heightDimension: .estimated(450))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 20
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
         return section
     }
     

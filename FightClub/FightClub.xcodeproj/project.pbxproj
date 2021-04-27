@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D0B6AAE26348E3E008B4899 /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D0B6AAD26348E3E008B4899 /* Movie.json */; };
+		9D43091C2637F04D00F45B6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D43091B2637F04D00F45B6F /* BaseViewController.swift */; };
 		9DEB5FAB2635379000C4B1CB /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB5FAA2635379000C4B1CB /* MovieListViewController.swift */; };
 		9DEB5FBC2635383F00C4B1CB /* MovieListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB5FBB2635383F00C4B1CB /* MovieListCollectionViewCell.swift */; };
 		9DEB5FC42635385F00C4B1CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB5FC32635385F00C4B1CB /* Constants.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		9D0B6AAD26348E3E008B4899 /* Movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
+		9D43091B2637F04D00F45B6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9DEB5FAA2635379000C4B1CB /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		9DEB5FBB2635383F00C4B1CB /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DEB5FC32635385F00C4B1CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				9DF4A5B226348A8800F439FA /* Utility.swift */,
 				9DEB5FC32635385F00C4B1CB /* Constants.swift */,
 				9DEB5FCC26356C0600C4B1CB /* SearchHandler.swift */,
+				9D43091B2637F04D00F45B6F /* BaseViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				9DF4A5B326348A8800F439FA /* Utility.swift in Sources */,
 				9DEB60192636D93B00C4B1CB /* SimilarMovies.swift in Sources */,
 				9DEB5FEF2636AC2600C4B1CB /* Synopsis.swift in Sources */,
+				9D43091C2637F04D00F45B6F /* BaseViewController.swift in Sources */,
 				9DF4A5932634869800F439FA /* MovieList.swift in Sources */,
 				9DF4A5852634865B00F439FA /* APIManager.swift in Sources */,
 				9DF4A58D2634867800F439FA /* DataManager.swift in Sources */,
