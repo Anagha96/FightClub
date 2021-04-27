@@ -108,7 +108,25 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.MovieDetails.movieDetailsSectionIdentifier, for: indexPath) as? MovieDetailsSectionHeaderView else {
                 return UICollectionReusableView()
             }
-            headerView.sectionHeader.text = sections[indexPath.section].rawValue
+            switch sections[indexPath.section] {
+            case .Cast:
+                if !viewModel.crewList.value.isEmpty {
+                    headerView.sectionHeader.text = sections[indexPath.section].rawValue
+                }
+            case .SimilarMovies:
+                if !viewModel.movieList.value.isEmpty {
+                    headerView.sectionHeader.text = sections[indexPath.section].rawValue
+                }
+            case .MovieDetails:
+                if !viewModel.movieDetails.value.isEmpty {
+                    headerView.sectionHeader.text = sections[indexPath.section].rawValue
+                }
+            case .Reviews:
+                if !viewModel.movieReviews.value.isEmpty {
+                    headerView.sectionHeader.text = sections[indexPath.section].rawValue
+                }
+            }
+           
             return headerView
         }
         return UICollectionReusableView()
